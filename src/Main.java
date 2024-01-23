@@ -240,3 +240,32 @@ class ApartmentDataBase {
         return true;
     }
 }
+public class Main {
+    public static void main(String[] args) {
+        ApartmentDataBase apartmentDB = new ApartmentDataBase();
+        System.out.println("Ввод дома");
+        House house = apartmentDB.InputHouseFromUser();
+        System.out.println("Ввод подъезда");
+        Doorway doorway = apartmentDB.InputDoorwayFromUser();
+        System.out.println("Ввод консьержа");
+        Concierge concierge = apartmentDB.InputConciergeFromUser();
+        System.out.println("Ввод квартиры");
+        Flat flat = apartmentDB.InputFlatFromUser();
+        System.out.println("Ввод владельца квартиры");
+        Owner owner = apartmentDB.InputOwnerFromUser();
+        apartmentDB.AddHouse(house);
+        apartmentDB.AddDoorway(doorway);
+        apartmentDB.AddConcierge(concierge);
+        apartmentDB.AddFlat(flat);
+        apartmentDB.AddOwner(owner);
+        apartmentDB.PrintHouseList();
+        apartmentDB.PrintDoorwayList();
+        apartmentDB.PrintConciergeList();
+        apartmentDB.PrintFlatList();
+        apartmentDB.PrintOwnerList();
+
+        //Статические методы
+        System.out.println("Общее количество владельцев: " + Owner.getTotalOwners());
+        System.out.println("Общее количество квартир: " + ApartmentDataBase.getTotalApartments());
+    }
+}
